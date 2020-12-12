@@ -9,7 +9,6 @@ class User(AbstractUser):
     avatar = models.CharField(max_length=500)
     REQUIRED_FIELDS = ['username']
     USERNAME_FIELD = 'email'
-    department = models.CharField(max_length=255, blank=False)
 
     def get_username(self):
         return self.email
