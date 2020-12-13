@@ -9,9 +9,9 @@ class MemberSerializer(serializers.ModelSerializer):
 
     class Meta: 
         model = Member
-        fields = ('id', 'username', 'name', 'department', 'team')
+        fields = ('id', 'user_pk', 'name', 'department', 'team')
 
 class PrincipleSerializer(serializers.ModelSerializer):
     class Meta: 
         model = Principle
-        fields = ('id', 'username', 'feeling', 'date')
+        fields = ('id', 'name', 'date', 'questionnaire_type', 'question_one', 'question_two', 'question_three', 'question_four', 'question_five', 'question_six', 'question_seven')

@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Member(models.Model):
-    username = models.ForeignKey('users.user', on_delete=models.CASCADE, related_name='member', blank=False)
+    user_pk = models.ForeignKey('users.user', on_delete=models.CASCADE, related_name='member', blank=False)
     name = models.CharField(max_length=100, blank=False)
     department = models.CharField(max_length=100, blank=False)
     team = models.CharField(max_length=100, blank=False)
@@ -12,25 +12,72 @@ class Member(models.Model):
         return self.name
 
 class Principle(models.Model):
-    username = models.ForeignKey(Member, on_delete=models.CASCADE, related_name='principle', blank=False)
+    name = models.ForeignKey(Member, on_delete=models.CASCADE, related_name='principle', blank=False)
     date = models.DateField(auto_now=True)
-    HAPPY = 'H'
-    SAD = 'S'
-    MAD = 'M'
-    CHILL = 'C'
-    DONT_KNOW = 'SF'
-    EMOTION_CHOICES = [
-        (HAPPY, 'Happy'),
-        (SAD, 'Sad'),
-        (MAD, 'Mad'),
-        (CHILL, 'Chill'),
-        (DONT_KNOW, 'Don\'t Know'),
+
+    MENTAL = 'Mental'
+    PHYSICAL = 'Physical'
+    EMOTIONAL = 'Emotional'
+    QUESTIONNAIRE_TYPE = [
+        (MENTAL, 'Mental'),
+        (PHYSICAL, 'Physical'),
+        (EMOTIONAL, 'Emotional'),
     ]
-    feeling = models.CharField(
-        max_length=2,
-        choices=EMOTION_CHOICES,
-        default=CHILL,
+    questionnaire_type = models.CharField(
+        max_length=10,
+        choices=QUESTIONNAIRE_TYPE,
+        default=MENTAL,
+    )
+
+    STRONGLY_DISAGREE = 1
+    DISAGREE = 2
+    SLIGHTLY_DISAGREE = 3
+    SLIGHTLY_AGREE = 4
+    AGREE = 5
+    STRONGLY_AGREE = 6
+    RESPONSE_CHOICES = [
+        (STRONGLY_DISAGREE, 1),
+        (DISAGREE, 2),
+        (SLIGHTLY_DISAGREE, 3),
+        (SLIGHTLY_AGREE, 4),
+        (AGREE, 5),
+        (STRONGLY_AGREE, 6),
+    ]
+    question_one = models.CharField(
+        max_length=1,
+        choices=RESPONSE_CHOICES,
+        default=SLIGHTLY_AGREE,
+    )
+    question_two = models.CharField(
+        max_length=1,
+        choices=RESPONSE_CHOICES,
+        default=SLIGHTLY_AGREE,
+    )
+    question_three = models.CharField(
+        max_length=1,
+        choices=RESPONSE_CHOICES,
+        default=SLIGHTLY_AGREE,
+    )
+    question_four = models.CharField(
+        max_length=1,
+        choices=RESPONSE_CHOICES,
+        default=SLIGHTLY_AGREE,
+    )
+    question_five = models.CharField(
+        max_length=1,
+        choices=RESPONSE_CHOICES,
+        default=SLIGHTLY_AGREE,
+    )
+    question_six = models.CharField(
+        max_length=1,
+        choices=RESPONSE_CHOICES,
+        default=SLIGHTLY_AGREE,
+    )
+    question_seven = models.CharField(
+        max_length=1,
+        choices=RESPONSE_CHOICES,
+        default=SLIGHTLY_AGREE,
     )
 
     def __str__(self):
-        return self.feeling
+        return self.username
