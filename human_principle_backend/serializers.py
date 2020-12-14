@@ -1,9 +1,10 @@
 from rest_framework import serializers
 from .models import Member, Principle
+from users.serializers import UserSerializer
 
 class MemberSerializer(serializers.ModelSerializer):
     # feeling = serializers.ReadOnlyField(
-    #     source='principle.username',
+    #     source='Principle.username',
     #     read_only=True
     # )
 
@@ -12,6 +13,11 @@ class MemberSerializer(serializers.ModelSerializer):
         fields = ('id', 'user_pk', 'name', 'department', 'team')
 
 class PrincipleSerializer(serializers.ModelSerializer):
+    user = UserSerializer(
+        many=True,
+        read_only=True,
+        source='auth.User'
+    )
     class Meta: 
         model = Principle
-        fields = ('id', 'name', 'date', 'questionnaire_type', 'question_one', 'question_two', 'question_three', 'question_four', 'question_five', 'question_six', 'question_seven')
+        fields = ('id', 'user', 'username', 'date', 'questionnaire_type', 'question_one', 'question_two', 'question_three', 'question_four', 'question_five', 'question_six', 'question_seven')
