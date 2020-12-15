@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from .models import Principle
-from users.serializers import UserSerializer
 from users.models import User
 
 class PrincipleSerializer(serializers.ModelSerializer):
@@ -11,3 +10,4 @@ class PrincipleSerializer(serializers.ModelSerializer):
     class Meta: 
         model = Principle
         fields = ('id', 'email', 'date', 'questionnaire_type', 'question_one', 'question_two', 'question_three', 'question_four', 'question_five', 'question_six', 'question_seven')
+
