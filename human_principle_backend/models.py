@@ -2,17 +2,9 @@ from django.db import models
 
 # Create your models here.
 # app name then model class name
-class Member(models.Model):
-    user_pk = models.ForeignKey('users.User', on_delete=models.CASCADE, related_name='member', blank=False)
-    name = models.CharField(max_length=100, blank=False)
-    department = models.CharField(max_length=100, blank=False)
-    team = models.CharField(max_length=100, blank=False)
-
-    def __str__(self):
-        return self.name
 
 class Principle(models.Model):
-    username = models.ForeignKey('users.User', on_delete=models.CASCADE, related_name='principle', blank=False)
+    email = models.ForeignKey('users.User', on_delete=models.CASCADE, related_name='principle', blank=False)
     date = models.DateField(auto_now=True)
 
     MENTAL = 'Mental'
@@ -80,4 +72,4 @@ class Principle(models.Model):
     )
 
     def __str__(self):
-        return self.username
+        return self.email
