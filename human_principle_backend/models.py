@@ -22,19 +22,19 @@ class Principle(models.Model):
         default=MENTAL,
     )
 
-    STRONGLY_DISAGREE = '1'
-    DISAGREE = '2'
-    SLIGHTLY_DISAGREE = '3'
-    SLIGHTLY_AGREE = '4'
-    AGREE = '5'
-    STRONGLY_AGREE = '6'
+    STRONGLY_DISAGREE = 1
+    DISAGREE = 2
+    SLIGHTLY_DISAGREE = 3
+    SLIGHTLY_AGREE = 4
+    AGREE = 5
+    STRONGLY_AGREE = 6
     RESPONSE_CHOICES = [
-        (STRONGLY_DISAGREE, '1'),
-        (DISAGREE, '2'),
-        (SLIGHTLY_DISAGREE, '3'),
-        (SLIGHTLY_AGREE, '4'),
-        (AGREE, '5'),
-        (STRONGLY_AGREE, '6'),
+        (STRONGLY_DISAGREE, 1),
+        (DISAGREE, 2),
+        (SLIGHTLY_DISAGREE, 3),
+        (SLIGHTLY_AGREE, 4),
+        (AGREE, 5),
+        (STRONGLY_AGREE, 6),
     ]
     question_one = models.CharField(
         max_length=1,
