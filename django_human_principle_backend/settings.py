@@ -140,7 +140,7 @@ REST_FRAMEWORK = {
     ],
     # Change permision class before production
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        'rest_framework.permissions.DjangoModelPermissions'
         # 'rest_framework.permissions.AllowAny'
     ]
 }

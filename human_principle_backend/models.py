@@ -1,10 +1,11 @@
 from django.db import models
+from users.models import User
 
 # Create your models here.
 # app name then model class name
 
 class Principle(models.Model):
-    email = models.ForeignKey('users.User', on_delete=models.CASCADE, related_name='principle', blank=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='principles', blank=False)
     date = models.DateField(auto_now=True)
 
     MENTAL = 'Mental'

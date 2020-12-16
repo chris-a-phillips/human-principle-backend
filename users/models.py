@@ -37,7 +37,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     department = models.CharField(max_length=255)
     team = models.CharField(max_length=255)
 
-
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
