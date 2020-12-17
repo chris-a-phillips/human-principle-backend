@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True if os.environ['MODE'] == 'dev' else False
 
 ALLOWED_HOSTS = ['*']
 CORS_ORIGIN_ALLOW_ALL = True
@@ -156,3 +156,5 @@ DJOSER = {
 }
 
 AUTH_USER_MODEL = 'users.User'
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
