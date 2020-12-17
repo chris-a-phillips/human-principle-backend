@@ -1,0 +1,1 @@
+web: gunicorn django_human_principle_backend.wsgi
