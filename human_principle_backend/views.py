@@ -8,15 +8,16 @@ from human_principle_backend.permissions import IsOwner
 
 
 class PrincipleViewSet(viewsets.ModelViewSet):
-    queryset = Principle.objects.all()
     serializer_class = PrincipleSerializer
     permission_classes = [IsOwner]
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
-    def list(self, request):
-        queryset = Principle.objects.filter(user=request.user)
-        serializer = PrincipleSerializer(queryset, many=True)
+    def get_queryset(self):
+        if self.request.user.is_superuser:
+            queryset = Principle.objects.all()
+        else:
+            queryset = Principle.objects.filter(user=self.request.user)
 
-        return  response.Response(serializer.data)
+        return queryset
