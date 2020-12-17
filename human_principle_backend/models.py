@@ -22,54 +22,62 @@ class Principle(models.Model):
         default=MENTAL,
     )
 
-    STRONGLY_DISAGREE = 1
-    DISAGREE = 2
-    SLIGHTLY_DISAGREE = 3
-    SLIGHTLY_AGREE = 4
-    AGREE = 5
-    STRONGLY_AGREE = 6
+    ONE = 1
+    TWO = 2
+    THREE = 3
+    FOUR = 4
+    FIVE = 5
+    SIX = 6
+    SEVEN = 7
+    EIGHT = 8
+    NINE = 9
+    TEN = 10
     RESPONSE_CHOICES = [
-        (STRONGLY_DISAGREE, 1),
-        (DISAGREE, 2),
-        (SLIGHTLY_DISAGREE, 3),
-        (SLIGHTLY_AGREE, 4),
-        (AGREE, 5),
-        (STRONGLY_AGREE, 6),
+        (ONE, 1),
+        (TWO, 2),
+        (THREE, 3),
+        (FOUR, 4),
+        (FIVE, 5),
+        (SIX, 6),
+        (SEVEN, 7),
+        (EIGHT, 8),
+        (NINE, 9),
+        (TEN, 10),
     ]
     question_one = models.CharField(
-        max_length=1,
+        max_length=2,
         choices=RESPONSE_CHOICES,
-        default=SLIGHTLY_AGREE,
+        default=0,
     )
     question_two = models.CharField(
-        max_length=1,
+        max_length=2,
         choices=RESPONSE_CHOICES,
-        default=SLIGHTLY_AGREE,
+        default=ONE,
     )
     question_three = models.CharField(
-        max_length=1,
+        max_length=2,
         choices=RESPONSE_CHOICES,
-        default=SLIGHTLY_AGREE,
+        default=ONE,
     )
     question_four = models.CharField(
-        max_length=1,
+        max_length=2,
         choices=RESPONSE_CHOICES,
-        default=SLIGHTLY_AGREE,
+        default=ONE,
     )
     question_five = models.CharField(
-        max_length=1,
+        max_length=2,
         choices=RESPONSE_CHOICES,
-        default=SLIGHTLY_AGREE,
+        default=ONE,
     )
     question_six = models.CharField(
-        max_length=1,
+        max_length=2,
         choices=RESPONSE_CHOICES,
-        default=SLIGHTLY_AGREE,
+        default=ONE,
     )
     question_seven = models.CharField(
-        max_length=1,
+        max_length=2,
         choices=RESPONSE_CHOICES,
-        default=SLIGHTLY_AGREE,
+        default=ONE,
     )
 
     def __str__(self):

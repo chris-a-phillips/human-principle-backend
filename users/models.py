@@ -34,13 +34,11 @@ class User(AbstractBaseUser, PermissionsMixin):
     name = models.CharField(max_length=255)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-    department = models.CharField(max_length=255)
-    team = models.CharField(max_length=255)
 
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['name', 'department', 'team']
+    REQUIRED_FIELDS = ['name']
 
     def __str__(self):
         return self.email
