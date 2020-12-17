@@ -20,13 +20,3 @@ class PrincipleViewSet(viewsets.ModelViewSet):
         serializer = PrincipleSerializer(queryset, many=True)
 
         return  response.Response(serializer.data)
-
-    # def get_permissions(self):
-    #     # if self.action == 'list' or self.action == 'retrieve' or self.action == 'update' or self.action == 'partial_update' or self.action == 'destroy':
-    #     #     permission_classes = [IsOwner]
-    #     if self.action == 'create':
-    #         permission_classes = [IsAuthenticated]
-    #     else:
-    #         permission_classes = [IsOwner]
-
-    #     return [permission() for permission in permission_classes]
