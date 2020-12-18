@@ -4,6 +4,26 @@ from users.models import User
 # Create your models here.
 # app name then model class name
 
+class Goal(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='goals', blank=False)
+    set_date = models.DateField(auto_now=True)
+    due_date = models.DateField(auto_now=False, auto_now_add=False)
+    title = models.CharField(max_length = 255, blank=False)
+    description = models.CharField(max_length = 255, blank=False)
+    LOW = 'Low'
+    MEDIUM = 'Medium'
+    HIGH = 'High'
+    PRIORITY_OPTIONS = [
+        (LOW, 'Low'),
+        (MEDIUM, 'Medium'),
+        (HIGH, 'High'),
+    ]
+    priority_level = models.CharField(
+        max_length=10,
+        choices=PRIORITY_OPTIONS,
+        default=LOW,
+    )
+
 class Principle(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='principles', blank=False)
     date = models.DateField(auto_now=True)
