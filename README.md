@@ -126,14 +126,9 @@ There are many features that can still be added to this app. Any contributions y
 <!-- CONTACT -->
 ## Contact
 
-Chris Phillips - [Github](https://github.com/chris-a-phillips) - phillipsachris@gmail.com
+LinkedIn - [Github](https://github.com/chris-a-phillips) - phillipsachris@gmail.com
 
 Project Link: [https://github.com/chris-a-phillips/human-principle-backend](https://github.com/chris-a-phillips/human-principle-backend)
 
 Deployed Link: [https://human-principle-backend.herokuapp.com/](https://human-principle-backend.herokuapp.com/)
 
-
-
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-* [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
